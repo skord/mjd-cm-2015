@@ -1,0 +1,12 @@
+db:
+  image: postgres
+  ports:
+    - '5432'
+web:
+  build: .
+  command: bundle exec rackup -p 3000
+  ports:
+    - '3000:3000'
+  links:
+    - db
+    
